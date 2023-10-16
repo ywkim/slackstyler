@@ -1,6 +1,6 @@
 # slackstyler
 
-![Python version](https://img.shields.io/badge/python-3.7-blue)
+![Python version](https://img.shields.io/badge/python-3.8-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 `slackstyler` is a Python package that converts Markdown text into Slack message formatting. The motivation for creating this package is to allow Python developers to prepare and send richly-formatted messages to Slack in a way that's familiar and easy to use.
@@ -47,4 +47,4 @@ This project was inspired by [`slackify-markdown`](https://github.com/jsarafajr/
 
 ## License
 
-`slackstyler` is provided under the [MIT License](https://opensource.org/licenses/MIT).
+`slackstyler` is licensed under the [MIT License](https://opensource.org/licenses/MIT).
