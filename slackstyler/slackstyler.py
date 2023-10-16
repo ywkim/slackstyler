@@ -34,10 +34,19 @@ class SlackRenderer(mistune.Renderer):
         return '~' + text + '~'
 
     def list(self, body, ordered=True):
-        return body
+        lines = body.split('\n')
+        for i, line in enumerate(lines):
+            if line.startswith('li: '):
+                if ordered:
+                    prefix = '{}. '.format(i + 1)
+                else:
+                    prefix = '• '
+                lines[i] = prefix + line[4:]
+        return '\n'.join(lines)
 
     def list_item(self, text):
-        return '• ' + text + '\n'
+        # always use the same prefix "li: "
+        return 'li: ' + text + '\n'
 
     def link(self, link, title, content):
         escaped_link = self.escape_special(link)
@@ -55,7 +64,7 @@ class SlackRenderer(mistune.Renderer):
         return '`' + text + '`'
 
     def block_code(self, text, lang):
-        return '```' + text + '```\n'
+        return '```' + '\n' + text + '\n' + '```\n'
 
     def paragraph(self, text):
         return text + '\n'
@@ -65,6 +74,3 @@ class SlackRenderer(mistune.Renderer):
             return link
         else:
             return self.link(link, None, None)
-
-    def inline_html(self, html):
-        return html
