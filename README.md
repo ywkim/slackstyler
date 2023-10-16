@@ -1,55 +1,50 @@
 # slackstyler
 
-## Description
+![Python version](https://img.shields.io/badge/python-3.7-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-`slackstyler` is a Python package that converts strings written in Markdown into Slack message formatting. It provides a simple and convenient conversion of Markdown styles into Slack styles, making it an effective tool when creating or integrating with Slack bots.
+`slackstyler` is a Python package that converts Markdown text into Slack message formatting. The motivation for creating this package is to allow Python developers to prepare and send richly-formatted messages to Slack in a way that's familiar and easy to use.
+
+`slackstyler` was inspired by JavaScript's `slackify-markdown` library and also based on `mistune`, a markdown parser in pure Python.
+
+## Features
+- Converts Markdown text into Slack message formatting.
+- Supports various Markdown syntaxes:
+  - **Bold text**
+  - *Italic text*
+  - [Link](http://atlassian.com)
+  - and more...
 
 ## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install slackstyler.
-
+Install `slackstyler` with pip:
 ```bash
 pip install slackstyler
 ```
 
 ## Usage
 
-To use `slackstyler`, you only need to input the string that you want to convert from Markdown to Slack formatting.
-
-Here's a basic example:
+Here is a quick example of how to use `slackstyler`:
 
 ```python
 from slackstyler import SlackStyler
 
+# Create a styler instance
 styler = SlackStyler()
 
-markdown_string = "**Hello!** This is a `test` message from _markdown_."
-
-slack_style_string = styler.convert(markdown_string)
-
-print(slack_style_string)
+# Convert markdown text to slack message text
+markdown_text = "Hello, **Slack**!"
+slack_message = styler.convert(markdown_text)
+print(slack_message)
 ```
 
-This will return the following result:
-
-```bash
-*Hello!* This is a `test` message from _markdown_.
+When you run this code, you will see:
+```
+Hello, *Slack*!
 ```
 
-## Features
-
-`slackstyler` handles converting multiple aspects of Markdown into Slack message formatting, including but not limited to:
-
-- Bold text: `**bold**` in Markdown becomes `*bold*` in Slack.
-- Italics: `_italics_` in Markdown becomes `_italics_` in Slack.
-- Code blocks: `` `code` `` in Markdown becomes `` `code` `` in Slack.
-
-## Contributing
-
-We welcome contributions to `slackstyler`. If there are new features that you would like to add, or bugs that you have found, please open a new issue or submit a pull request.
+## Acknowledgments
+This project was inspired by [`slackify-markdown`](https://github.com/jsarafajr/slackify-markdown), a similar library written in JavaScript.
 
 ## License
 
-`slackstyler` is licensed under the MIT license.
-
-Thank you for choosing and using `slackstyler`. We hope this package makes your work with Slack and Markdown more efficient and enjoyable.
+`slackstyler` is provided under the [MIT License](https://opensource.org/licenses/MIT).
