@@ -35,10 +35,12 @@ class SlackRenderer(mistune.Renderer):
 
     def list(self, body, ordered=True):
         lines = body.split('\n')
+        count = 0
         for i, line in enumerate(lines):
             if line.startswith('li: '):
+                count += 1
                 if ordered:
-                    prefix = '{}. '.format(i + 1)
+                    prefix = '{}. '.format(count)
                 else:
                     prefix = '• '
                 lines[i] = prefix + line[4:]
