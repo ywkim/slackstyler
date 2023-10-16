@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "slackstyler"
+version = "0.0.1"
+description = "slackstyler is a Python package that converts strings written in Markdown into Slack message formatting. It provides a simple and convenient conversion of Markdown styles into Slack styles and can be effectively used when creating or integrating with Slack bots."
+authors = ["Youngwook Kim <youngwook.kim@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mistune = "<1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
