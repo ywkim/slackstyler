@@ -53,6 +53,13 @@ class TestSlackStyler(unittest.TestCase):
         result = self.styler.convert(text)
         self.assertEqual(result, expected, 'Expected "{}" but got "{}"'.format(expected, result))
 
+    def test_links_with_content_text(self):
+        self._assert_converts_to('[alt text](http://atlassian.com)', '<http://atlassian.com|alt text>\n')
+    
+    def test_links_with_content_and_title(self):
+        self._assert_converts_to('[alt text](http://atlassian.com "Atlassian")',
+                                 '<http://atlassian.com|alt text>\n')
+
 
 if __name__ == '__main__':
     unittest.main()
